@@ -10,24 +10,23 @@ class MyApp extends StatefulWidget {
 }  
   
 class _MyAppState extends State<MyApp> {  
+  AudioPlayer advancedPlayer = AudioPlayer(); 
+  
   @override  
   Widget build(BuildContext context) {  
     return MaterialApp(  
       home:  Scaffold(
       body: Center(
-          child: ElevatedButton.icon(
-            icon: Icon(
-              Icons.home,
-              color: Colors.green,
-              size: 30.0,
-            ),
-            label: Text('Elevated Button'),
+          child: IconButton(
+			      icon: Image.asset('button.png'),
+            iconSize: 150,
+            color: Colors.white,
             onPressed: () async => play(),
-    ))));
+          ),
+    )));
   }
 
   Future<void> play() async {
-    AudioPlayer advancedPlayer = new AudioPlayer();
     await advancedPlayer.play(AssetSource('test.mp3'));
   }
 }
